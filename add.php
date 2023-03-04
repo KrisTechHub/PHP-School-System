@@ -22,5 +22,17 @@
 </head>
 <body>
     
+    <form action="" method="post">
+
+        <label for="">First Name</label>
+        <input type="text" name="firstname" id="firstname">
+
+        <label for="">Last Name</label>
+        <input type="text" name="lastname" id="lastname">
+
+        <input type="submit" name="submit" value="Enter">
+
+    </form>
+
 </body>
 </html>
