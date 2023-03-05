@@ -5,7 +5,7 @@
     $con = connection(); //to call connection
 
 
-    $sql = "SELECT * FROM student_list";
+    $sql = "SELECT * FROM student_list ORDER  BY id DESC";
     $students = $con -> query($sql) or die ($con -> error);
     $row = $students -> fetch_assoc();
 
