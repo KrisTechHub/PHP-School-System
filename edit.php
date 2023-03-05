@@ -2,11 +2,11 @@
 
     include_once("connections/connection.php"); //call other php file
     $con = connection(); //to call connection
-    $id = $_GET['id'];
+    $id = $_GET['ID'];
 
-    $sql = "SELECT * FROM student_list WHERE id = '$id'";
-    $students = $con -> query($sql) or die ($con -> error);
-    $row = $students -> fetch_assoc();
+        $sql = "SELECT * FROM student_list WHERE id = '$id'";
+        $students = $con -> query($sql) or die ($con -> error);
+        $row = $students -> fetch_assoc();
 
 
     if(isset($_POST['submit'])) { //check if submit is posted
@@ -15,18 +15,14 @@
         $lname = $_POST['lastname'];
         $gender = $_POST['gender'];
 
-        $sql = "INSERT INTO `student_list`(`first_name`, `last_name`, 
-         `gender`) VALUES ('$fname','$lname','$gender')";
+        $sql = "UPDATE student_list SET first_name = '$fname', last_name = '$lname', 
+        gender = '$gender' WHERE id = '$id'";
         
         $con -> query($sql) or die ($con -> error); //put data to database
 
-        echo header("Location: index.php");//redirect to home after log in
+        echo header("Location: details.php?ID=".$id);//redirect to home after log in
 
     }
-
-    $sql = "SELECT * FROM student_list"; 
-    $students = $con -> query($sql) or die ($con -> error);
-    $row = $students -> fetch_assoc();
 
 
 ?>
@@ -44,16 +40,16 @@
     
     <form action="" method="post"> <!--use POST to capture all submitted information -->
 
-        <label for="">First Name</label>
+        <label>First Name</label>
         <input type="text" name="firstname" id="firstname" value="<?php echo $row['first_name'];?>">
 
-        <label for="">Last Name</label>
+        <label>Last Name</label>
         <input type="text" name="lastname" id="lastname" value="<?php echo $row['last_name'];?>">
 
-        <label for="">Gender</label>
+        <label>Gender</label>
         <select name="gender" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="Male" <?php echo ($row['gender'] == "Male") ? 'selected' : '';?>>Male</option>
+            <option value="Female" <?php echo ($row['gender'] == "Fema") ? 'selected' : '';?>>Female</option>
 
         <input type="submit" name="submit" value="Enter">
 
