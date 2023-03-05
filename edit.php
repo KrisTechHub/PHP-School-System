@@ -2,6 +2,12 @@
 
     include_once("connections/connection.php"); //call other php file
     $con = connection(); //to call connection
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM student_list WHERE id = '$id'";
+    $students = $con -> query($sql) or die ($con -> error);
+    $row = $students -> fetch_assoc();
+
 
     if(isset($_POST['submit'])) { //check if submit is posted
 
@@ -39,10 +45,10 @@
     <form action="" method="post"> <!--use POST to capture all submitted information -->
 
         <label for="">First Name</label>
-        <input type="text" name="firstname" id="firstname">
+        <input type="text" name="firstname" id="firstname" value="<?php echo $row['first_name'];?>">
 
         <label for="">Last Name</label>
-        <input type="text" name="lastname" id="lastname">
+        <input type="text" name="lastname" id="lastname" value="<?php echo $row['last_name'];?>">
 
         <label for="">Gender</label>
         <select name="gender" id="gender">

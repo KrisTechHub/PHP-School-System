@@ -42,7 +42,7 @@
         <a href="logout.php">Logout</a>
         <a href="add.php">Add New</a>
     <?php } else { ?>   
-        <a href="login.php">Admin Login</a>
+        <a href="login.php">Login</a>
     <?php } ?> 
 
     <table>
@@ -50,6 +50,7 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +58,7 @@
             <tr>
                 <td><?php echo $row['first_name']; ?></td>
                 <td><?php echo $row['last_name']; ?></td>
+                <td><a href="details.php?ID=<?php echo $row['id'];?>">View</a></td>
             </tr>
             <?php } while ($row = $students -> fetch_assoc()) ?>
         </tbody>
