@@ -14,6 +14,9 @@
          `gender`) VALUES ('$fname','$lname','$gender')";
         
         $con -> query($sql) or die ($con -> error); //put data to database
+
+        echo header("Location: index.php");//redirect to home after log in
+
     }
 
     $sql = "SELECT * FROM student_list"; 
@@ -34,7 +37,7 @@
 </head>
 <body>
     
-    <form action="" method="post">
+    <form action="" method="post"> <!--use POST to capture all submitted information -->
 
         <label for="">First Name</label>
         <input type="text" name="firstname" id="firstname">

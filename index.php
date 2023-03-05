@@ -1,7 +1,6 @@
 <?php
 
     include_once("connections/connection.php"); //call other php file
-
     $con = connection(); //to call connection
 
 
