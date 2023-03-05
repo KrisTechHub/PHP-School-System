@@ -1,9 +1,5 @@
 <?php
 
-        //use sesion to log in page (way to program to store all data to all part of the web/app)
-    if (!isset($_SESSION)){ //check if session is set
-        session_start();  //if detected that no sessin is started yet, function will run
-    }
 
     include_once("connections/connection.php"); //call other php file
     $con = connection(); //to call connection
@@ -22,6 +18,9 @@
         if ($total > 0){
             $_SESSION['UserLogin'] = $row['username'];
             $_SESSION['Access'] = $row['access'];
+
+            echo $_SESSION['UserLogin'];
+
         }
     }
 

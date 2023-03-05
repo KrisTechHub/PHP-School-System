@@ -1,5 +1,17 @@
 <?php
 
+
+        //use sesion to log in page (way to program to store all data to all part of the web/app)
+    if (!isset($_SESSION)){ //check if session is set
+        session_start();  //if detected that no sessin is started yet, function will run
+    }
+
+    if(isset($_SESSION['UserLogin'])){
+        echo "Welcome " . $_SESSION['UserLogin'];
+    } else {
+        echo "Welcome";
+    }
+
     include_once("connections/connection.php"); //call other php file
     $con = connection(); //to call connection
 
