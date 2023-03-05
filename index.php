@@ -6,10 +6,10 @@
         session_start();  //if detected that no sessin is started yet, function will run
     }
 
-    if(isset($_SESSION['UserLogin'])){
-        echo "Welcome " . $_SESSION['UserLogin'];
+    if(isset($_SESSION['UserLogin'])) {
+        echo "Welcome " .$_SESSION['UserLogin'];
     } else {
-        echo "Welcome";
+        echo "Welcome Guest";
     }
 
     include_once("connections/connection.php"); //call other php file
@@ -38,7 +38,13 @@
     <br/>
     <br/>
 
-    <a href="add.php">Add New</a>
+    <?php if(isset($_SESSION['UserLogin'])){?>
+        <a href="logout.php">Logout</a>
+        <a href="add.php">Add New</a>
+    <?php } else { ?>   
+        <a href="login.php">Admin Login</a>
+    <?php } ?> 
+
     <table>
         <thead>
             <tr>
