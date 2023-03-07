@@ -54,13 +54,26 @@
             </tr>
         </thead>
         <tbody>
+            <form action="delete.php" method="post" >
+
             <?php do { ?>
             <tr>
                 <td><?php echo $row['first_name']; ?></td>
                 <td><?php echo $row['last_name']; ?></td>
-                <td><a href="details.php?ID=<?php echo $row['id'];?>">View</a></td>
+                <td>
+                    <a href="details.php?ID=<?php echo $row['id'];?>">View</a>
+                        
+                    <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "administrator") {?>
+                        <a href="delete.php">Delete</a>
+                    <?php } else { ?>
+                        <button type="submit" name="delete" style="visibility:hidden">Delete</button>
+                    <?php } ?>
+                    
+                </td>
+                
             </tr>
             <?php } while ($row = $students -> fetch_assoc()) ?>
+            </form>
         </tbody>
     </table>
 </body>

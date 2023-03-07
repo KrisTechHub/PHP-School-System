@@ -42,7 +42,7 @@
         <a href="edit.php?ID=<?php echo $row['id'];?>">Edit</a>
 
         <button type="submit" name="delete" >Delete</button> <!--When using delete capability, never use GET method, always use POST to avoid deleting all data in database -->
-        <input type="text" name="ID" value="<?php echo $row['id'];?>">
+        <input type="hidden" name="ID" value="<?php echo $row['id'];?>"><!--hide ID-->
     </form>
 
    <h2><?php echo $row['first_name'];?> <?php echo $row['last_name'];?></h2>
