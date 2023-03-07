@@ -38,8 +38,12 @@
     <br/>
     <a href="index.php"><-Back</a>
     <a href="edit.php?ID=<?php echo $row['id'];?>">Edit</a>
-    <a href="delete.php">Delete</a> <!--When using delete capability, never use GET method, always use POST to avoid deleting all data in database -->
+
+    <form action="delete.php" method="post" >
+        <button type="submit"> Delete</button> <!--When using delete capability, never use GET method, always use POST to avoid deleting all data in database -->
+    </form>
 
    <h2><?php echo $row['first_name'];?> <?php echo $row['last_name'];?></h2>
+   <p>is a <?php echo $row['gender']; ?></p>
 </body>
 </html>
