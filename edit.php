@@ -49,9 +49,9 @@
         <label>Gender</label>
         <select name="gender" id="gender">
             <option value="Male" <?php echo ($row['gender'] == "Male") ? 'selected' : '';?>>Male</option>
-            <option value="Female" <?php echo ($row['gender'] == "Fema") ? 'selected' : '';?>>Female</option>
+            <option value="Female" <?php echo ($row['gender'] == "Female") ? 'selected' : '';?>>Female</option>
 
-        <input type="submit" name="submit" value="Enter">
+        <input type="submit" name="submit" value="Update">
 
     </form>
 

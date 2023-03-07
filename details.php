@@ -36,6 +36,7 @@
 </head>
 <body>
     <br/>
+    <a href="index.php"><-Back</a>
     <a href="edit.php?ID=<?php echo $row['id'];?>">Edit</a>
     <a href="delete.php">Delete</a> <!--When using delete capability, never use GET method, always use POST to avoid deleting all data in database -->
 
