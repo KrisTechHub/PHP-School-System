@@ -54,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-            <form action="delete.php" method="post" >
+            <form action="delete.php" method="post">
 
             <?php do { ?>
             <tr>
@@ -64,15 +64,13 @@
                     <a href="details.php?ID=<?php echo $row['id'];?>">View</a>
                         
                     <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "administrator") {?>
-                        <a href="delete.php">Delete</a>
-                    <?php } else { ?>
-                        <button type="submit" name="delete" style="visibility:hidden">Delete</button>
-                    <?php } ?>
-                    
+                        <button type="submit" name="delete">Delete</button>
+                    <?php };?>
                 </td>
                 
             </tr>
             <?php } while ($row = $students -> fetch_assoc()) ?>
+            
             </form>
         </tbody>
     </table>
