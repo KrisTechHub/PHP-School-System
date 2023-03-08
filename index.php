@@ -1,6 +1,5 @@
 <?php
 
-
         //use sesion to log in page (way to program to store all data to all part of the web/app)
     if (!isset($_SESSION)){ //check if session is set
         session_start();  //if detected that no sessin is started yet, function will run
@@ -30,7 +29,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/styles.css">
     <title>Student Management System</title>
-
 
 </head>
 <body>
