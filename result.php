@@ -15,8 +15,9 @@
     include_once("connections/connection.php"); //call other php file
     $con = connection(); //to call connection
 
+    $search = $_GET['search']; //listen to user action(search)
 
-    $sql = "SELECT * FROM student_list ORDER  BY id DESC";
+    $sql = "SELECT * FROM student_list WHERE first_name LIKE '%$search%' || last_name LIKE '%$search%' ORDER  BY id DESC"; //use LIKE to show all data with same info, use % prefix to show all containing with searched word
     $students = $con -> query($sql) or die ($con -> error);
     $row = $students -> fetch_assoc();
 

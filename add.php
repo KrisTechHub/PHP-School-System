@@ -49,7 +49,7 @@
             <option value="Male">Male</option>
             <option value="Female">Female</option>
 
-        <input type="submit" name="submit" value="Enter">
+        <input type="submit" name="submit" value="Add">
 
     </form>
 
