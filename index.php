@@ -38,6 +38,11 @@
     <br/>
     <br/>
 
+    <form action="result.php" method="get">
+        <input type="text" name="search" id="search">
+        <button type="submit" name="query">Search</button>
+    </form>
+
     <?php if(isset($_SESSION['UserLogin'])){?>
         <a href="logout.php">Logout</a>
         <a href="add.php">Add New</a>
