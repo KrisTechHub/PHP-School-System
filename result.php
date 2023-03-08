@@ -51,6 +51,7 @@
         <a href="login.php">Login</a>
     <?php } ?> 
 
+    <?php if($row > 0) { ?> <!--if searching with result, SHOW -->
     <table>
         <thead>
             <tr>
@@ -69,16 +70,19 @@
                 <td>
                     <a href="details.php?ID=<?php echo $row['id'];?>">View</a>
                         
-                    <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "administrator") {?>
+                    <?php if(isset($_SESSION['Access']) && $_SESSION['Access'] == "administrator") {?> <!--own code -->
                         <button type="submit" name="delete">Delete</button>
-                    <?php };?>
-                </td>
+                    <?php };?> <!--own code -->
+                </td> 
                 
             </tr>
-            <?php } while ($row = $students -> fetch_assoc()) ?>
+            <?php } while ($row = $students -> fetch_assoc()) ?>         
             
             </form>
         </tbody>
     </table>
+    <?php }else{ ?> <!--if searching without result, say no result -->
+        <h1>No result</h1>
+    <?php } ?>
 </body>
 </html>
